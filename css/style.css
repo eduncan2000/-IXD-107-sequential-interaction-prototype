@@ -1,0 +1,27 @@
+/* Making a Muse: styles carried over from the clay studies (Tools panel removed) */
+:root { --bg: #1b1410; color-scheme: dark; box-sizing: border-box; padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px);
+  --ink: #efe6d8; --soft: #b5a894; --line: rgba(239, 230, 216, 0.28); --font: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif; }
+html, body { height: 100%; }
+body { margin: 0; padding: 0; background: var(--bg); overflow: hidden; font: 14px -apple-system, BlinkMacSystemFont, sans-serif; }
+[hidden]:not([hidden=until-found i]) { display: none !important; }
+
+/* the scene fills the window */
+svg { position: fixed; inset: 0; width: 100%; height: 100%; display: block; touch-action: none; cursor: grab; user-select: none; -webkit-user-select: none; }
+svg.grabbing { cursor: grabbing; }
+
+/* small sound toggle, top right */
+.snd { position: fixed; top: 16px; right: 16px; z-index: 6; padding: 8px 14px; border-radius: 10px; border: 1px solid var(--line); background: rgba(22, 16, 12, 0.78); color: var(--ink); font: 500 12px var(--font); cursor: pointer; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+.snd[aria-pressed="false"] { color: var(--soft); }
+.snd:hover { background: rgba(40, 30, 22, 0.86); }
+.snd:focus-visible, #bye button:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+
+/* the ending message */
+#bye { position: fixed; inset: 0; z-index: 7; display: flex; align-items: center; justify-content: center; pointer-events: none; opacity: 0; transition: opacity .4s ease; }
+#bye.show { opacity: 1; }
+#bye .byeBox { text-align: center; padding: 26px 34px; border-radius: 18px; background: rgba(22, 16, 12, 0.82); border: 1px solid var(--line); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); transform: scale(.6); font-family: var(--font); }
+#bye.show .byeBox { animation: pop .55s cubic-bezier(.2, 1.5, .4, 1) forwards; }
+@keyframes pop { to { transform: scale(1); } }
+#bye .byeT { color: var(--ink); font-size: 30px; font-weight: 600; margin-bottom: 16px; letter-spacing: .01em; }
+#bye button { padding: 11px 26px; border-radius: 12px; border: 0; background: #efe6d8; color: #1a120c; font: inherit; font-weight: 700; font-size: 15px; cursor: pointer; }
+/* the button only takes clicks while the message is showing */
+#bye.show button { pointer-events: auto; }
