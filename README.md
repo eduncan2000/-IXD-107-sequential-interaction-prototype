@@ -4,3 +4,7 @@ Project 2 interaction prototype for IXD 107, built with Claude Code and publishe
 **Live site:** https://eduncan2000.github.io/-IXD-107-sequential-interaction-prototype/
 
 
+
+## Artifacts
+
+- [Clay Ball](clay-ball/) – live: https://eduncan2000.github.io/-IXD-107-sequential-interaction-prototype/clay-ball/
